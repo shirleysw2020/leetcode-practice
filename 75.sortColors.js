@@ -15,6 +15,9 @@ Input: nums = [2,0,1]
 Output: [0,1,2]
 */
 
+// time complex: O(n)
+// space complex: O(1) in-place operation
+
 let sortColors = function(nums) {
   if (!nums || nums.length == 0) {
     return;
@@ -43,3 +46,4 @@ let sortColors = function(nums) {
     nums[j] = temp;
   }
 }
+
