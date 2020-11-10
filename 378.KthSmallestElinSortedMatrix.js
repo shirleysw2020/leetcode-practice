@@ -5,6 +5,11 @@
  * @param {number} k
  * @return {number}
  */
+
+ /*
+Time comp: O(n)
+Space Comp: O(n)
+ */
 var kthSmallest = function(matrix, k) {
   // VISUALIZE EVERY STEP:
   // let joined = matrix.join(','); //'1,5,9'
