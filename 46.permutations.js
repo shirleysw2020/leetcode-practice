@@ -24,7 +24,7 @@ var permute = function(nums) {
   if(nums.length == 0) return res;
 
   function permutation(arr) {
-    if (nums.length == res.length) {
+    if (nums.length == arr.length) {
       res.push(arr);
     }
 

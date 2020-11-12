@@ -12,3 +12,11 @@ var maxProfit = function(prices) {
     }
     return max;
 };
+function maxp(pricesArrofNum) {
+    let max = 0; //worsse case, we dont make profit
+    for (let i = 0; i < pricesArrofNum.length; i++) {
+        max +=  (Math.max(0, pricesArrofNum[i] - pricesArrofNum[i-1]));
+    }
+
+    return max;
+}
