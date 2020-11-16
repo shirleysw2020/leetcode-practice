@@ -10,7 +10,8 @@ Input: [[1,2,2,1],
 
 Output: 2
 */
-
+//time and space:
+// O(n) and O(n)
 /**
  * @param {number[][]} wall
  * @return {number}
@@ -18,14 +19,13 @@ Output: 2
 var leastBricks = function(wall) {
   let map = new Map();
   let max = 0;
-  for (let row of wall) {
+  for (let i=0; i < wall.length; i++){
     let sum = 0;
-    for (let i = 0; i < row.length - 1; i++) {
-      sum += wall[row][i];
+    for (let j = 0; j < wall[i].length - 1; j++) {
+      sum += wall[i][j];
       map.set(sum, (map.get(sum) || 0) + 1);
       max = Math.max(max, map.get(sum));
     }
   }
   return wall.length - max;
-
 };
