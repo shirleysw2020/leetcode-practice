@@ -20,15 +20,15 @@ var findDuplicate = function(nums) {
   // turtle and hare race by Floyd's law
   let turtle = nums[0];
   let hare = nums[0];
-  //at end of first loop, they end at same spot.
-  // hare goes twice as fast as turtle
   do {
+    //hare goes twice as fast as turtle and they will meet at same spot
       turtle = nums[turtle];
       hare = nums[nums[hare]];
   } while(turtle !== hare);
-  //then hare slows down to have turtle catch up to find the intersection point
-  // turtle starts from beginning again - entrance point
+  //turtle gets second chance to race again start from beginning
+  //hare git lazy and slows down
   turtle = nums[0];
+  //keep looping until they meet! then return oen of them
   while (turtle !== hare) {
       turtle = nums[turtle];
       hare = nums[hare];
