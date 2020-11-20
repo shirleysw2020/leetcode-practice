@@ -11,7 +11,6 @@ a.prototype = {
   }
 }
 
-
 const b = function(x,y) {
   this.y = y;
   //this.x = new a(x).x;
@@ -22,3 +21,8 @@ const b = function(x,y) {
 const newB = new b('x','y');
 newB.getX();
 newB.getY();
+
+let a = [2,5,7];
+let b = [4,6,10,11];
+let c = [...a, ...b].sort((a,b) => a-b);
+return c;
