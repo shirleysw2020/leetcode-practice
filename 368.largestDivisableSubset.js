@@ -1,4 +1,7 @@
 var largestDivisibleSubset = function(nums) {
+    // sort the numbers bc we know a number has common divisor as its own divisor
+    // if 8's dividable by 4, then 8 is also dividable by 4's divisor.
+
 	  let count = Array(nums.length);
     let dividedIdx = Array(nums.length);
     nums.sort((a,b) => a-b);
