@@ -23,10 +23,23 @@ var convert = function(s, numRows) {
     res[index] += s[i];
     if (index == 0) {
       step = 1;
-    } else if (index == numRos - 1) {
+    } else if (index == numRows - 1) {
       step = -1;
     }
     index += step;
   }
   return res.join('');
 };
+
+P     A     Y
+   1     2
+  --->  --->
+   3      4
+  <---  <---
+  /*
+notice a pattern, we always fill the letters by numRows sections. Since numRows is 3 we breka into our result into 3 section as we fill them with letters
+
+step1: starting with 0th row, then 1st row, 2nd row
+step 2: once we hit 2nd row, always revert to 1st row, then 0th row.
+And Repeat step 1 & 2.
+  /*
