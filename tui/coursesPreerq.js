@@ -47,7 +47,7 @@ let courseSchedule = function(courses) {
   } else {
     mid = Math.floor((courses.length)/2);
   }
-  for (let pair of courses) {
+  for (let pair of courses) { //O(n) or O(V + E)where v is vertices and e is edges
     m.set(pair[0], pair[1]);
     if (!indegree.has(pair[0])) {
       indegree.set(pair[0], 0);
@@ -58,13 +58,13 @@ let courseSchedule = function(courses) {
     indegree.set(pair[1], indegree.get(pair[1]) + 1);
   }
   let queue = [];
-  for (let pair of indegree) {
+  for (let pair of indegree) { //O(n)
     if (pair[1] == '0') {
       queue.push(pair[0]);
       break;
     }
   }
-  while (mid) {
+  while (mid) { //O(n/2)
     let cur = queue.shift();
     queue.push(m.get(cur));
     mid--;
@@ -74,6 +74,7 @@ let courseSchedule = function(courses) {
 
 console.log(courseSchedule(input));
 
+//space: O(n)
 
 // const input = [
 //   ['SoftwareDesign', 'ComputerNetworks'],
