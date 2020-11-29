@@ -4,28 +4,21 @@
 Example:
 Input:
 ["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]
-
 Output:
 ["901 mail.com","50 yahoo.com","900 google.mail.com","5 wiki.org","5 org","1 intel.mail.com","951 com"]
 */
-
-/**
- * @param {string[]} cpdomains
- * @return {string[]}
- */
-
+//psuedocode:
+/
 //1st method
 //  time: O(n) + O(n) + O(3) = O(3n) ===> O(n) linear time.
 //BEST solution
 var subdomainVisits = function(cpdomains) {
   let res = [], m = new Map();
-
   for (let cpdomain of cpdomains) { //O(n)
     let values = cpdomain.split(' ');
     let domains = values[1];
     let count = Number(values[0]);
-
-    while (domains) { // O(3) - constant bc each domain will have max of two '.'
+    while (domains) { // O(3) constant bc each domain only have max of 2 '.'
       let total = count;
       if (m.has(domains)) {
         total += m.get(domains);
