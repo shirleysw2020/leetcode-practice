@@ -7,8 +7,20 @@ Input:
 Output:
 ["901 mail.com","50 yahoo.com","900 google.mail.com","5 wiki.org","5 org","1 intel.mail.com","951 com"]
 */
-//psuedocode:
-/
+//
+/* PSUEDOCODE
+//for loop over all strings of input
+//separate string at space
+//assign count and domains as its own
+//loop while domain is not empty
+  // track total count with new variable, initialized as count above
+  // look for if map has currentdomain, if it does add count to its count
+  // set domain in map's count to be total
+  loop over the domain and delete subdomain before '.'
+//
+//loop over map with ket and val pointer
+//push into result array count and domains separated by a space
+*/
 //1st method
 //  time: O(n) + O(n) + O(3) = O(3n) ===> O(n) linear time.
 //BEST solution
