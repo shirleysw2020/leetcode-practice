@@ -1,35 +1,14 @@
-//
-/*
-input: [][] : [
-  [SoftwareDesign ComputerNetworks],
-  [ComputerNetworks ComputerArchitecture],
-  [ComputerArchitecture DataStructures],
-  [DataStructures Algorithms],
-  [Algorithms FoundationsOfCS],
-  [FoundationsOfCS OperatingSystems]
-]
-output: string: DataStructures
-*/
-// const input = [
-//   ['ComputerNetworks', 'ComputerArchitecture'],
-//   ['SoftwareDesign', 'ComputerNetworks'],
-//   ['ComputerArchitecture', 'DataStructures'],
-//   ['DataStructures', 'testing'],
-//   ['testing', 'Algorithms'],
-//   ['Algorithms', 'FoundationsOfCS'],
-//   ['FoundationsOfCS', 'OperatingSystems']
-// ];
+
 const input = [
-  ['SoftwareDesign', 'ComputerNetworks'],
-  ['ComputerNetworks', 'test2'],
-  ['test2', 'test3'],
-  ['test3', 'ComputerArchitecture'],
-  ['ComputerArchitecture', 'DataStructures'],
-  ['DataStructures', 'testing'],
-  ['testing', 'Algorithms'],
-  ['Algorithms', 'FoundationsOfCS'],
-  ['FoundationsOfCS', 'OperatingSystems']
+  ['art1', 'art2'],
+  ['art2', 'art3'],
+  ['art3', 'art4'],
+  ['art4', 'art5'],
+  ['art5', 'art6'],
+  ['art6', 'art7'],
+  ['art7', 'art8']
 ];
+
 let courseSchedule = function(courses) {
   let m = new Map(); // tracks course and prereq relationship
   let indegree = new Map(); //tracks num of precourse needed
@@ -58,15 +37,3 @@ let courseSchedule = function(courses) {
 }
 
 console.log(courseSchedule(input));
-
-// const input = [
-//   ['SoftwareDesign', 'ComputerNetworks'],
-//   ['ComputerNetworks', 'test2'],
-//   ['test2', 'test3'],
-//   ['test3', 'ComputerArchitecture'],
-//   ['ComputerArchitecture', 'DataStructures'],
-//   ['DataStructures', 'testing'],
-//   ['testing', 'Algorithms'],
-//   ['Algorithms', 'FoundationsOfCS'],
-//   ['FoundationsOfCS', 'OperatingSystems']
-// ];
