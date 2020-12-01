@@ -30,7 +30,9 @@ let frequentAccess = function(history) {
       let cur = map.get(pet);
       map.get(pet).push(time);
       if (time - cur[0] <= 100) {//within 1 hr
+        // check if entered 3 times && result dont already have this pet's entry
         if (cur.length == 3 && !res.has(pet)) {
+          //important! must create new array not reference to map, else it will keep on being modified unintentionally when map changes.
             res.set(pet,[...map.get(pet)]);
         }
       } else {
