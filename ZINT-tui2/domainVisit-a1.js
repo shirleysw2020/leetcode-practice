@@ -1,5 +1,5 @@
 /*
-811. Subdomain Visit Count
+811. Subdomain Visit Count  easy
 
 Example:
 Input:
@@ -21,6 +21,8 @@ Output:
 //loop over map with ket and val pointer
 //push into result array count and domains separated by a space
 */
+
+
 //1st method
 //  time: O(n) + O(n) + O(3) = O(3n) ===> O(n) linear time.
 //BEST solution
@@ -32,13 +34,12 @@ var subdomainVisits = function(cpdomains) {
     let count = Number(values[0]);
     while (domains) { // O(3) constant bc each domain only have max of 2 '.'
       let total = count;
-      if (m.has(domains)) {
-        total += m.get(domains);
-      }
+      if (m.has(domains)) total += m.get(domains);
       m.set(domains, total);
+
       domains = domains.indexOf('.') == -1
         ? null
-        : domains.substring(domains.indexOf('.')+1, domains.length);
+        : domains.substring(domains.indexOf('.')+1);
     }
   }
   for (let [subdomain, visits] of m) { //O(n)

@@ -18,12 +18,14 @@ let fullJustify = function(words, maxWidth, align) {
             totalChars += 1 + words[last].length;
             last++;
         }
+
         let str = '';
         let gaps = last - idx - 1; //last = 3, idx = 0
         for (let i = idx; i < last; i++) {
             str += (words[i] + ' ');
         }
-        //if last line or 1 word -> left justify
+
+        //left justify
         if (align[k] == 'left') {
             // str = str.substring(0, n-1); //rmv last space
             // str.substring(0, n-1); //rmv last space

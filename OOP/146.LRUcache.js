@@ -10,7 +10,7 @@ class DoublyLinkedList {
       if (!this.head) {
           this.head = node;
           this.tail = node;
-      } else {
+      } else { //set node as new head and connect with old head
           node.next = this.head;
           this.head.prev = node;
           this.head = node;
@@ -33,7 +33,7 @@ class DoublyLinkedList {
       }
       this.head = node;
   }
-  removeTail() {
+  removeTail() { //if exceed capacity, remove from tail - least recently used
       let evict = this.tail;
       if (evict.prev !== null && this.tail != this.head) {
         evict.prev.next = null;
@@ -79,17 +79,17 @@ class LRUCache {
 * @return {void}
 */
   put(key, value) {
-      if (this.map.has(key)) { //already exist
+      if (this.map.has(key)) { //exist
           this.map.get(key).val = value; //update value
           this.LL.moveToHead(this.map.get(key)); //update recentness
           return;
-      } else {
+      } else { // does not exist
           const newNode = new Node(key, value); //make new node
           if (this.size < this.capacity) { //within capacity
               this.size++;
-          } else { //exceed capacity
-              const keyToRemove = this.LL.removeTail();
-               this.map.delete(keyToRemove);
+          } else { //reached capacity
+              const keyToRemove = this.LL.removeTail(); //remove least recent
+              this.map.delete(keyToRemove); // delete the key
           }
           this.LL.insertHead(newNode);
           this.map.set(key, newNode); // add new node to map
