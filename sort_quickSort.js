@@ -7,7 +7,7 @@ var sortArray = function(nums) {
 
 var quickSort = function(nums, start, end){
 	if (start >= end) return;
-	let left = start, right = end;
+	let left =  start, right = end;
 	let pivot = nums[Math.floor((start+end) / 2)];
 	while (left <= right) {
 		while (left <= right && nums[left] < pivot) {
@@ -26,6 +26,31 @@ var quickSort = function(nums, start, end){
 	quickSort(nums, left, end);
 }
 
+
+// function sortArray(nums) {
+//   let res = [];
+//   if (nums.length < 2) return res;
+//   quickSort(nums, 0, nums.length - 1);
+//   for (let i of nums) res.push(i);
+//   return res;
+// }
+// function quickSort(nums, l, r) {
+//   if (l >= r) return;
+//   let mid = partition(nums, l, r);
+//   quickSort(nums, l, mid);
+//   quickSort(nums, mid + 1, r);
+// }
+// function partition(nums, l, r) {
+//   let pivot = nums[l];
+//   while (l < r) {
+//     while (l < r && nums[r] >= pivot) r--;
+//     nums[l] = nums[r];
+//     while (l < r && nums[l] <= pivot) l++;
+//     nums[r] = nums[l];
+//   }
+//   nums[l] = pivot;
+//   return l;
+// }
 let nums = [7,5,9,10,2,3,1];
 
 console.log(sortArray(nums));
