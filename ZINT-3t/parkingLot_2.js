@@ -46,9 +46,13 @@ class EntryTerminal extends Terminal {
   + getTicket(ticket);
 }
 
-class parkingAssignment {
+class ParkingAssignmentStrategy {
   + getParkingSpot(entryTerminalId); //return parkingSpotId
   + releaseparkingSpot(parkingSpotId)
+}
+
+class ParkingNearEntryStrategy {
+  //implement algorithm to figure out nearest parking spot to a customer's entrance
 }
 
 class Car {
