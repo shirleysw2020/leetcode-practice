@@ -33,11 +33,11 @@ class MinHeap {
     const length = this.heap.length;
     //we want min val to have priority
     //if left child is lesser than parent
-    if (left <= length && this.heap[left] < this.heap[smallest]) {
+    if (left < length && this.heap[left] < this.heap[smallest]) {
       smallest = left;
     }
     //if right child is lesser than parent
-    if (right <= length && this.heap[right] < this.heap[smallest]) {
+    if (right < length && this.heap[right] < this.heap[smallest]) {
       smallest = right;
     }
     //if they are equal that means we never switched index of smallest, no child was greater than node at index
