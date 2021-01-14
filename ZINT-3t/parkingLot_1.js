@@ -44,9 +44,9 @@ class Level {
   this.spotsPerRow = 10; //static
   this.availableSpots = 0;
   getAvailableSpots() //return availableSpots
-  *parkVehicle(Vehicle vehicle) //park the vehicle in a spot or multiple spots, return false if failed
-  - parkStartingAtSpot(spotId, Vehicle v) // park a vehicle starting at a spot, continue till vehicle.spotNeeded.
-  - findAvailableSpots(Vehicle v)// find a spot to park this vehicle, return index of spot, or -1 on failure.
+  *parkVehicle(vehicle) //park the vehicle in a spot or multiple spots, return false if failed
+  - parkStartingAtSpot(spotId, vehicle) // park a vehicle starting at a spot, continue till vehicle.spotNeeded.
+  - findAvailableSpots(vehicle)// find a spot to park this vehicle, return index of spot, or -1 on failure.
   spotFreed() //availableSpots++
 }
 
