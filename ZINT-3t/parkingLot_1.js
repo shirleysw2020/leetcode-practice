@@ -2,65 +2,59 @@
 * motorcycles can park in all large, compact, or large spot.
 * car can park in compact or large spot
 * bus can only park in large spot
-*
 */
 class Vehicle {
-  - parkingSpots = [];
-  - licensePlate
-  - size
-  - spotNeeded
-  + getSpotNeeded() //return size of spot
-  + getSize() //return size
-  + parkInSpot(ParkingSpot spot) {
-    parkingSpots.push(spot);
-  }
-  + clearSpot(ParkingSpot) //remove car from spt and notify spot that it's gone
-  + canFitInSpot() //return boolean whether a spot is big enough for the vehicle
+  this.licensePlate = licensePlate // string
+  getSpotNeeded() //return spots needed for a vehicle
+  getSize() //return size of a vehicle
 }
-
 class Bus extends Vehicle {
-  - size = 'large'
-  - spotsNeeded = 5
-  + canFitInSpot(ParkingSpot spot) //check if spot is large, doens't check num of spots
+  this.size = 'large'
+  this.spotsNeeded = 5
+  canFitInSpot(ParkingSpot spot) //check if spot is large, doens't check num of spots
 }
 class Car extends Vehicle {
-  - size = 'compact';
-  - spotsNeeded = 1 //can i call these static? NO! call them constant
-  + canFitInSpot(ParkingSpot spot) //check if spot is compact or large, doens't check num of spots
+  this.size = 'compact';
+  this.spotsNeeded = 1 //can i call these static? NO! call them constant
+  canFitInSpot(ParkingSpot spot) //check if spot is compact or large, doens't check num of spots
 }
 class Motorcycle extends Vehicle {
-  - size = 'motorcycle';
-  - spotsNeeded = 1
-  + canFitInSpot(ParkingSpot spot)
-}
-
-class ParkingLot {
-  - levels = []; //holds object instances od Level class
-  - numOfLevels = 5; //static
-  + parkVehicle(Vehicle vehicle) //park the vehicle in a spot or multiple spots, return false if failed
-}
-
-class Level {
-  - floor = this.floor //int
-  - numOfSpots = this.numOfSpots;
-  - spots = []; //hold instance of ParkingSpots
-  - spotsPerRow = 10; //static
-  - availableSpots = 0;
-  + availableSpots() //return availableSpots
-  + parkVehicle(Vehicle vehicle) //park the vehicle in a spot or multiple spots, return false if failed
-  + parkStartingAtSpot(num, Vehicle v) // park a vehicle starting at the spot number and continue until vehicle.spotNeeded.
-  + findAvailableSpots(Vehicle v)// find a spot to park this vehicle, return index of spot, or -1 on failure.
-  + freeSpot() //availableSpots++
+  this.size = 'motorcycle';
+  this.spotsNeeded = 1
+  canFitInSpot(ParkingSpot spot)
 }
 
 class ParkingSpot {
-  - this.spotNumber = spotNumber
-  - this.spotSize = spotSize
-  - this.level = level
-  - this.row = row
-
+  this.spotId = spotId //int
+  this.spotSize = spotSize //large, compact, or, motorcycle
+  this.level = level //int
+  this.row = row //int
+  this.vehicle = vehicle //can be null when no car parked
   getRow() //return row number
-  getSpotNumber() //return spotNumber
-  isAvailable() //return boolean whether spot is available
-  canFitVehicle() //return boolean whether spot is big enough for vehicle
+  getSpotId() //return spotId
+  isVacant() //return boolean whether vehicle is null
+  canFitVehicle(vehicle) //return boolean whether spot is big enough for vehicle
+  removeVehicle() //notify level spot is freed
 }
+
+class Level {
+  this.floor = floor //int
+  this.numOfSpots = numOfSpots;
+  this.spots = []; //hold instance of ParkingSpots
+  this.spotsPerRow = 10; //static
+  this.availableSpots = 0;
+  getAvailableSpots() //return availableSpots
+  *parkVehicle(Vehicle vehicle) //park the vehicle in a spot or multiple spots, return false if failed
+  - parkStartingAtSpot(spotId, Vehicle v) // park a vehicle starting at a spot, continue till vehicle.spotNeeded.
+  - findAvailableSpots(Vehicle v)// find a spot to park this vehicle, return index of spot, or -1 on failure.
+  spotFreed() //availableSpots++
+}
+
+class ParkingLot {
+  this.levels = []; //holds object instances of Level class
+  this.numOfLevels = 5; //constant
+  *parkVehicle(vehicle) //park the vehicle in a spot or multiple spots, return false if failed
+  clearSpot(parkingSpot) //remove car from spot and mark as vacant
+  canFitInSpot() //return boolean whether a spot is big enough for the vehicle
+}
+

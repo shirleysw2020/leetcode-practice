@@ -35,7 +35,6 @@ fetchBeers = async (param) => {
 
 
 // //---//------//------//------//------//------//------//------//------///
-
 let getImage = async() => {
   return new Promise((resolve,reject) => {
     setTimeout(() => {
