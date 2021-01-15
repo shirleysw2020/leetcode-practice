@@ -7,7 +7,7 @@ matrix = [
 k = 8,
 return 13.
 */
-
+//378
 // index starts at 1 due to the array-heap implementation
 for (let i = 1; i < k; i++) {
   minHeapify(array, i) // O( log(n) ) runtime

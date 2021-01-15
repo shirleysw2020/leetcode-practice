@@ -23,7 +23,7 @@ var allAnagrams = function(wordSize, word, anagram = '') {
     anagrams.push(anagram);
     return;
   }
-
+  // this step is to print all build ups of the original word, not just anagram
   if (anagram.length >= 1 && anagram.length < wordSize) {
     anagrams.push(anagram);
   }
@@ -38,7 +38,7 @@ var allAnagrams = function(wordSize, word, anagram = '') {
   }
 };
 
-callAnagram('abcd'); //this is our word to work with
+callAnagram('abc'); //this is our word to work with
 console.log(anagrams);
 
 

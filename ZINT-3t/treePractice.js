@@ -12,7 +12,7 @@ class Familytree {
   bfsPrintChildren() {
     let res = [[this.name]];
     let queue = [this];
-    while (queue.length) {
+    while (queue.length) {// lways loop while we have smth in queue
       let len = queue.length;
       let temp = [];
       for (let i = 0; i < len; i++) {

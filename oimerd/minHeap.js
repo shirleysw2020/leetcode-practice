@@ -1,7 +1,7 @@
 // max Heap
 class MinHeap {
   constructor() {
-    this.heap = [5, 7, 9];
+    this.heap = [2,5, 5, 6, 7, 8, 9];
   }
   insert(value) {
     this.heap.push(value);
@@ -36,7 +36,7 @@ class MinHeap {
     if (left < length && this.heap[left] < this.heap[smallest]) {
       smallest = left;
     }
-    //if right child is lesser than parent
+    //if right child is lesser than left /or/ smallest
     if (right < length && this.heap[right] < this.heap[smallest]) {
       smallest = right;
     }
@@ -51,10 +51,11 @@ class MinHeap {
 
 let test = new MinHeap();
 console.log(test)
-test.insert(6);
-test.insert(8);
-test.insert(4);
-test.insert(6);
 test.insert(5);
+console.log(test.extractMin());
+test.insert(8);
+// test.insert(4);
+// test.insert(6);
+// test.insert(5);
 console.log(test)
-test.extractMin()
+console.log(test.extractMin());
