@@ -17,7 +17,7 @@ class Familytree {
       let temp = [];
       for (let i = 0; i < len; i++) {
         let cur = queue.shift().children;
-        if (cur.length > 0) {
+        if (cur.length > 0) { //does it even have children?
           for (let child of cur) {
             queue.push(child);
             temp.push(child.name);
@@ -37,7 +37,7 @@ class Familytree {
         res[lvl].push(generation.name);
       }
 
-      if (!generation.children) return;
+      if (!generation.children) return; //does it even have children?
       for (let child of generation.children) {
         findChildren(child, lvl+1);
       }

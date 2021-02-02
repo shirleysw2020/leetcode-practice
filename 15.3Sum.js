@@ -29,10 +29,7 @@ var threeSum = function(nums) {
   for (var i = 0; i < nums.length - 2; i++) {
     if (nums[i] > 0) break; //if first num is already greater than 0, impossible to sum to 0
     //rid of duplicates
-    if (i > 0 && nums[i] === nums[i-1]) {
-      continue;
-    }
-
+    if (i > 0 && nums[i] === nums[i-1]) continue;
     let left = i + 1;
     let right = nums.length - 1;
     while (left < right) {

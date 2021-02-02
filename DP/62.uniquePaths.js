@@ -25,13 +25,17 @@ From the top-left corner, there are a total of 3 ways to reach the bottom-right 
  * @return {number}
  */
 var uniquePaths = function(m, n) {
+  //dp pattern: make a nested arr since our input is matrix w/ l and w one more than given
   let dp = Array(m+1).fill(1).map(() => Array(n+1).fill(1));
 
   for (let i = 1; i < m; i++) {
       for (let j = 1; j < n; j++) {
-          dp[i][j] = dp[i-1][j] + dp[i][j-1];
+        //current cell = top([i-1]) + left([j-1]) since robot only travel those 2 directions
+        dp[i][j] = dp[i-1][j] + dp[i][j-1];
       }
   }
 
   return dp[m-1][n-1];
 };
+
+console.log(uniquePaths(3,7));

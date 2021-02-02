@@ -9,17 +9,28 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
+let reverseList = function(head) {
   //Input: 1->2->3->4->5->NULL
   //Output: 5->4->3->2->1->NULL
-  1->null
   let prev = null;
-  while(head) {
-    let cur = head;
+  while (head) {
     let next = head.next;
-    cur.next = prev;
+    //update prev and head
+    head.next = prev;
+
+    prev = head;
     head = next;
-    prev = cur;
   }
   return prev;
-};
+}
+
+/* Recursion */
+
+let reverseList = function(head) {
+  if (head == null || head.next == null) return head;
+  let p = reverseList(head.next);
+  head.next.next = head;
+  head.next = null;
+  return p;
+}
+

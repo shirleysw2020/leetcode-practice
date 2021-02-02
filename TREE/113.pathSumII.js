@@ -29,25 +29,21 @@ Return:
  * @return {number[][]}
  */
 var pathSum = function(root, sum) {
-  let res = [], stack = [];
-  function accumulateSum(root, curSum) {
-    if(!root) return;
+  let res = [], let stack = [];
+  function accmulate(root, curSum) {
+    if (!root) return;
 
-    stack.push(root.val)
-    curSum += root.val;
-    // make sure current node is leaf node and reched sum
-    if (!root.left && !root.right && sum == curSum) {
+    if (!root.left && !root.right && curSum == sum) {
       let temp = [];
-      for (let node of stack) {
-        temp.push(node);
-      }
+      for (let n of stack) temp.push(n);
       res.push(temp);
     }
 
-    if (root.left) accumulateSum(root.left, curSum);
-    if (root.right) accumulateSum(root.right, curSum);
+    accmulate(root.left, curSum+root.val);
+    accmulate(root.right, curSum+root.val);
+
     stack.pop();
   }
-  accumulateSum(root, 0);
+  accmulate(root, 0);
   return res;
 };

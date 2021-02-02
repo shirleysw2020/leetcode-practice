@@ -1,7 +1,7 @@
 (arr) {
   let res = 0;
-  let left = 0;
-  let right = arr.length-1;
+  let l = 0;
+  let r = arr.length-1;
   let leftMax = 0;
   let rightMax = 0;
 
@@ -11,10 +11,10 @@
 
     if (leftMax > rightMax) {// always do calc on the lesser side bc volume of water is defined by the shorter height
       res += leftMax - arr[num];
-      left++;
+      l++;
     } else {
       res += rightMax - arr[num];
-      right--;
+      r--;
     }
   }
   return res;

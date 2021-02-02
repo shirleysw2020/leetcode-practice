@@ -9,7 +9,9 @@ Explanation: [2,3] has the largest product 6.
  * @return {number}
  */
 var maxProduct = function(nums) {
-  let absMax = nums[0];
+  // store the result that is the max we have found so far
+  let absMax = nums[0]; //handles edge case when nums only have one element in there and it's negative
+  //putting nums[0] prevents absMax becoming 0 instead of what's really in nums[0]
   let maxPos = 1; //set the foundation nums to be 1 bc we dealing with multiplication
   let maxNeg = 1; // this way we preserve the first val, by * 1, will still be val itself
   for (let i = 0; i < nums.length; i++) {
@@ -22,3 +24,5 @@ var maxProduct = function(nums) {
   }
   return absMax;
 };
+
+console.log(maxProduct([3,-1,2,6]));
